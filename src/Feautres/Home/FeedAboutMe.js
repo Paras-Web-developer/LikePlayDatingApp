@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 //Image
 import editIcon from "../../Assets/Images/editIcon.png";
+// import editIcon from "../../Assets/Images/me1.jpeg";
 
 //FakeData
 import { Images, AboutUser } from "./DataPage";
@@ -13,156 +14,209 @@ import { Countvalue } from "../../Redux/SliceOfRedux/EditProfile";
 import { useSelector } from "react-redux";
 
 const FeedAboutMe = () => {
-
-  const profile_data = useSelector((e) => e.LoginSlice.data);
-  const dispatch=useDispatch()
-  const navigate = useNavigate()
+  // const profile_data = useSelector((e) => e.LoginSlice.data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <FeedAboutMeCss>
       <div className="aboutMe">
         <div className="edit-div">
           <p>About me</p>
-          <img src={editIcon} alt="editicon" onClick={() =>{dispatch(Countvalue(6)); navigate('/MyProfileEdit')}} />
+          <img
+            src={editIcon}
+            alt="editicon"
+            onClick={() => {
+              dispatch(Countvalue(6));
+              navigate("/MyProfileEdit");
+            }}
+          />
         </div>
-        <span>{profile_data?.about_me}</span>
+        {/* <span>{profile_data?.about_me}</span> */}
       </div>
 
       <div className="imagesDiv">
         <div className="edit-div">
-          <p>Images</p> <img src={editIcon} alt="editicon" onClick={() =>{dispatch(Countvalue(1)); navigate('/MyProfileEdit')}} />
+          <p>Images</p>{" "}
+          <img
+            src={editIcon}
+            alt="editicon"
+            onClick={() => {
+              dispatch(Countvalue(1));
+              navigate("/MyProfileEdit");
+            }}
+          />
         </div>
         <div className="pics">
-          {profile_data?.user_images_while_signup.map((val, index) => {
+          {/* {profile_data?.user_images_while_signup.map((val, index) => {
             return (
               <div className="picsDiv">
                 <img src={process.env.REACT_APP_BASEURL_IMAGE+val?.image_url} alt="img" />
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
 
       {/* Aboutuser */}
       {/* {AboutUser.FullName !== undefined && ( */}
-        <div className="detailsBox">
-          <div className="boxDiv">
-            <div>
-              <p>Full Name</p>
-              <span>{profile_data.user_name}</span>
-            </div>
-            <div>
-              <p>Age</p>
-              <span>{profile_data.age}</span>
-            </div>
+      <div className="detailsBox">
+        <div className="boxDiv">
+          <div>
+            <h4>Full Name</h4>
+            {/* <span>{profile_data.user_name}</span> */}
+            <p>Paras Grover</p>
           </div>
-          <div className="boxDiv">
-            <div>
-              <p>Gender</p>
-              <span>{profile_data.gender==="0"?"Male":"Female"}</span>
-            </div>
-            <div>
-              <p>Interested In</p>
-              <span>{profile_data.interested_in==="1"?"Female":"Male"}</span>
-            </div>
+          <div>
+            <h4>Age</h4>
+            {/* <span>{profile_data.age}</span> */}
+            <p>21 Years Old</p>
           </div>
-          <img className="editImgIcon" src={editIcon} alt="editicon" />
         </div>
+        <div className="boxDiv">
+          <div>
+            <h4>Gender</h4>
+            {/* <span>{profile_data.gender==="0"?"Male":"Female"}</span> */}
+            <p>male</p>
+          </div>
+          <div>
+            <h4>Interested In</h4>
+            {/* <span>{profile_data.interested_in==="1"?"Female":"Male"}</span> */}
+            <p>Female</p>
+          </div>
+        </div>
+        <img className="editImgIcon" src={editIcon} alt="editicon" />
+      </div>
       {/* )} */}
       {/* UserDetails */}
       <div className="detailsBox">
         <div className="boxDiv">
           <div>
-            <p>Status</p>
-            <span>{profile_data?.status}</span>
+            <h4>Status</h4>
+            {/* <span>{profile_data?.status}</span> */}
           </div>
           <div>
-            <p>Body Type</p>
-            <span>{profile_data?.body_type}</span>
+            <h4>Body Type</h4>
+            {/* <span>{profile_data?.body_type}</span> */}
+            <p>Fit</p>
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>Height</p>
-            <span>{profile_data?.height}</span>
+            <h4>Height</h4>
+            {/* <span>{profile_data?.height}</span> */}
+            <p>5.7 Foot</p>
           </div>
           <div>
-            <p>Education</p>
-            <span>{profile_data?.education}</span>
+            <h4>Education</h4>
+            {/* <span>{profile_data?.education}</span> */}
+            <p>bachelor of computer application</p>
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>Employment</p>
-            <span>{profile_data?.employment}</span>
+            <h4>Employment</h4>
+            {/* <span>{profile_data?.employment}</span> */}
+            <p>React js developer</p>
           </div>
         </div>
-        <img className="editImgIcon" src={editIcon} alt="editicon" onClick={() =>{dispatch(Countvalue(3)); navigate('/MyProfileEdit')}}  />
+        <img
+          className="editImgIcon"
+          src={editIcon}
+          alt="editicon"
+          onClick={() => {
+            dispatch(Countvalue(3));
+            navigate("/MyProfileEdit");
+          }}
+        />
       </div>
 
       {/* residence */}
       <div className="detailsBox">
         <div className="boxDiv">
           <div>
-            <p>Country of Residence</p>
-            <span>{profile_data?.residence_country}</span>
+            <h4>Country of Residence</h4>
+            {/* <span>{profile_data?.residence_country}</span> */}
+            <p>India</p>
           </div>
           <div>
-            <p>State</p>
-            <span>{profile_data?.state}</span>
+            <h4>State</h4>
+            {/* <span>{profile_data?.state}</span> */}
+            <p>Haryana</p>
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>City</p>
-            <span>{profile_data?.city}</span>
+            <h4>City</h4>
+            {/* <span>{profile_data?.city}</span> */}
+            <p>Sonipat</p>
           </div>
           <div>
-            <p>Nationality</p>
-            <span>{profile_data?.nationality}</span>
+            <h4>Nationality</h4>
+            {/* <span>{profile_data?.nationality}</span> */}
+            <p>Indian</p>
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>Religion</p>
-            <span>{profile_data?.religion}</span>
+            <h4>Religion</h4>
+            {/* <span>{profile_data?.religion}</span> */}
+            <p>Hindu</p>
           </div>
           <div>
-            <p>Tribe to date</p>
-            <span>{profile_data?.tribe_to_date}</span>
+            <h4>Tribe to date</h4>
+            {/* <span>{profile_data?.tribe_to_date}</span> */}
           </div>
         </div>
-        <img className="editImgIcon" src={editIcon} alt="editicon"  onClick={() =>{dispatch(Countvalue(4)); navigate('/MyProfileEdit')}} />
+        <img
+          className="editImgIcon"
+          src={editIcon}
+          alt="editicon"
+          onClick={() => {
+            dispatch(Countvalue(4));
+            navigate("/MyProfileEdit");
+          }}
+        />
       </div>
 
       {/* age */}
       <div className="detailsBox">
         <div className="boxDiv">
           <div>
-            <p>Age Range preferred to date</p>
-            <span>{profile_data?.age_range_for_date}</span>
+            <h4>Age Range preferred to date</h4>
+            {/* <span>{profile_data?.age_range_for_date}</span> */}
+            <p>17 to 25</p>
           </div>
           <div>
-            <p>Tribe to date</p>
-            <span>{profile_data?.tribe_to_date}</span>
+            <h4>Tribe to date</h4>
+            {/* <span>{profile_data?.tribe_to_date}</span> */}
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>Looking for</p>
-            <span>{profile_data?.looking_for}</span>
+            <h4>Looking for</h4>
+            {/* <span>{profile_data?.looking_for}</span> */}
+            <p>Female</p>
           </div>
           <div>
-            <p>Education</p>
-            <span>{profile_data?.education}</span>
+            <h4>Education</h4>
+            {/* <span>{profile_data?.education}</span> */}
           </div>
         </div>
         <div className="boxDiv">
           <div>
-            <p>Employment</p>
-            <span>{profile_data?.employment}</span>
+            <h4>Employment</h4>
+            {/* <span>{profile_data?.employment}</span> */}
           </div>
         </div>
-        <img className="editImgIcon" src={editIcon} alt="editicon" onClick={() =>{dispatch(Countvalue(5)); navigate('/MyProfileEdit')}}  />
+        <img
+          className="editImgIcon"
+          src={editIcon}
+          alt="editicon"
+          onClick={() => {
+            dispatch(Countvalue(5));
+            navigate("/MyProfileEdit");
+          }}
+        />
       </div>
     </FeedAboutMeCss>
   );
@@ -231,5 +285,11 @@ const FeedAboutMeCss = styled.div`
     position: absolute;
     top: 0.8rem;
     right: 0.8rem;
+  }
+  h4 {
+    color: #a8580f;
+  }
+  img {
+    /* width: 200px; */
   }
 `;

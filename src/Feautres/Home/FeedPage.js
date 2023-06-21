@@ -46,7 +46,7 @@ const FeedPage = () => {
     }
     const parseData=payload?.map((list)=>({
       profile_img:process.env.REACT_APP_BASEURL_IMAGE+list?.User?.user_images_while_signup[0]?.image_url,
-      userName:list?.User?.user_name || "",
+      // userName:list?.User?.user_name || "",
       date:moment(list?.User?.createdAt).local().format('DD MMMM LT'),
       caption:list?.caption || "",
       shots:list?.PostContents[0]?.media_url,

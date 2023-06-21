@@ -35,12 +35,21 @@ export default function Sidebar() {
   const [FAQcolor, setFAQcolor] = useState(false);
   const [Testimonialcolor, setTestimonialcolor] = useState(false);
   const [SubscriptionModal, setsubscriptionModal] = useState(false);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const content = (
     <Morecontent>
       <p>Verification</p>
       <p>Refer to friends</p>
-      <p style={{ color: "red" }} onClick={()=>dispatch(ValidUser(null))}>Logout</p>
+      {/* <p style={{ color: "red" }} onClick={()=>dispatch(ValidUser(null))}>Logout</p> */}
+      <p
+        style={{ color: "red" }}
+        onClick={() => {
+          localStorage.clear();
+          window.location.reload();
+        }}
+      >
+        Logout
+      </p>
     </Morecontent>
   );
   const primarycolor = "#A8580F";
@@ -272,13 +281,20 @@ export default function Sidebar() {
           onMouseEnter={() => setTestimonialcolor(true)}
           onMouseLeave={() => setTestimonialcolor(false)}
         >
-          <div className="content-list" onClick={()=>Navigate("/Layout/Testimonal")}>
+          <div
+            className="content-list"
+            onClick={() => Navigate("/Layout/Testimonal")}
+          >
             <Slogo>
               <Testimonial
-                color={Testimonialcolor || active==="/Layout/Testimonal"? primarycolor : secondarycolor}
+                color={
+                  Testimonialcolor || active === "/Layout/Testimonal"
+                    ? primarycolor
+                    : secondarycolor
+                }
               />
             </Slogo>
-            <Slabel active={active==="/Layout/Testimonal"}>
+            <Slabel active={active === "/Layout/Testimonal"}>
               <p>Testimonial</p>
             </Slabel>
           </div>

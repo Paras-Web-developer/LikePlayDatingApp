@@ -10,26 +10,28 @@ import { useSelector } from "react-redux";
 
 const FeedMyProfile = () => {
   const [active, setActive] = useState("aboutme");
-  const profile_data=useSelector(e=>e.LoginSlice.data)
-  
-  let profile_image=process.env.REACT_APP_BASEURL_IMAGE+profile_data?.user_images_while_signup[0].image_url
+  // const profile_data = useSelector((e) => e.LoginSlice.data);
+
+  // let profile_image =
+  //   process.env.REACT_APP_BASEURL_IMAGE +
+  //   profile_data?.user_images_while_signup[0].image_url;
 
   return (
     <>
       <LoginProfileCss>
         <div className="imgDiv">
-          <img src={profile_image} alt="pic" />
+          {/* <img src={profile_image} alt="pic" /> */}
         </div>
         <div className="detailsDiv">
-          <div className="username">{profile_data.user_name}</div>
+          {/* <div className="username">{profile_data.user_name}</div> */}
           <div className="userdata">
-            <span>{profile_data.age}</span>
+            {/* <span>{profile_data.age}</span> */}
             <span className="spanDot"></span>
-            <span>{profile_data.gender==="0"?"Male":"Female"}</span>
+            {/* <span>{profile_data.gender === "0" ? "Male" : "Female"}</span> */}
             <span className="spanDot"></span>
-            <span>{profile_data?.looking_for}</span>
+            {/* <span>{profile_data?.looking_for}</span> */}
           </div>
-          <div className="userdata">{profile_data?.city}</div>
+          {/* <div className="userdata">{profile_data?.city}</div> */}
           <img className="editIcon" src={editIcon} alt="edit" />
         </div>
       </LoginProfileCss>

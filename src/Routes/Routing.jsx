@@ -30,24 +30,25 @@ import EditName from "../EditProfile/EditName";
 import EditPofileDetails from "../Feautres/Home/EditPofileDetails";
 
 const Routing = () => {
-  const value = useSelector((e) => e.LoginSlice.data);
+  const paras = localStorage.getItem("Token");
+  const value = paras;
 
   let PublicRouter = ({ isAuth }) => {
-    if (isAuth?.token!== undefined) {
+    if (isAuth !== null) {
       return <Navigate to="/Layout/FeedPage" replace />;
     }
     return <Outlet />;
   };
 
   let PrivateRouter = ({ isAuth }) => {
-    if (isAuth?.token === undefined) {
+    if (isAuth === null) {
       return <Navigate to="/" />;
     }
     return <Outlet />;
   };
 
   let prop = value;
-  console.log("value",value,value?.token)
+  console.log("value", value,);
   return (
     <>
       <BrowserRouter>
@@ -60,7 +61,7 @@ const Routing = () => {
             <Route path="/Nigeria" element={<Country />} />
           </Route>
           <Route element={<PrivateRouter isAuth={prop} />}>
-          <Route path="/MyProfileEdit" element={<EditPofileDetails />} />
+            <Route path="/MyProfileEdit" element={<EditPofileDetails />} />
             <Route path="/Layout" element={<Layout />}>
               <Route path="/Layout/FeedPage" element={<FeedPage />} />
               <Route path="/Layout/MyProfile" element={<FeedMyProfile />} />
@@ -82,7 +83,7 @@ const Routing = () => {
               <Route path="/Layout/Settings" element={<Settings />} />
               <Route path="/Layout/FAQs" element={<FAQ />} />
               <Route path="/Layout/Testimonal" element={<Testimonial />} />
-              <Route path ='/Layout/EditName' element={<EditName/> }/>
+              <Route path="/Layout/EditName" element={<EditName />} />
               {/* <Route path="/Layout/Testimonal" element={<Testimonal />} /> */}
             </Route>
           </Route>

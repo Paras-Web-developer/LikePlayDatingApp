@@ -12,6 +12,7 @@ import {
 import { useSelector } from "react-redux";
 import moment from "moment";
 import {NoRecords} from "Style/comman_Css"
+import profile_image from "../Assets/Images/me1.jpeg"
 
 const messages = [
   {
@@ -33,9 +34,6 @@ export default function Rightsidebar() {
   const location = useLocation();
   const [path, setPath] = useState(true);
   const loginPerson = useSelector((e) => e.LoginSlice.data);
-  let profile_image =
-    process.env.REACT_APP_BASEURL_IMAGE +
-    loginPerson?.user_images_while_signup[0].image_url;
 
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
@@ -62,7 +60,8 @@ export default function Rightsidebar() {
                 onClick={() => navigate("/Layout/MyProfile")}
               >
                 <img src={profile_image} alt="" height={50} />
-                <p>{loginPerson.user_name}</p>
+                {/* <p>{loginPerson.user_name}</p> */}
+                <p>Pars Grover</p>
                 <AiOutlineRight />
               </div>
             </div>

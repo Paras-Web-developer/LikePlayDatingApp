@@ -35,8 +35,8 @@ export default function OTPVerifyModal({ closeMobileModal }) {
               inputStyle={{
                 border: "1px solid #cfcfcf",
                 borderRadius: "10px",
-                width: "48px",
-                height: "48px",
+                width: "35px",
+                height: "38px",
                 fontSize: "12px",
                 backgroundColor: "#F8F8F8",
                 fontWeight: "400",

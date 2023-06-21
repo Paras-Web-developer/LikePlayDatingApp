@@ -24,6 +24,7 @@ import styled from "styled-components";
 import { LoginApi } from "Services/collection";
 
 const LoginPage = () => {
+  const Token = 12345;
   const [passwordVisible, setPasswordVisible] = React.useState(false);
   const [loading, setloading] = useState(false);
   const value = useSelector((e) => e);
@@ -41,16 +42,22 @@ const LoginPage = () => {
     password: Yup.string().required(" Password is Required*"),
   });
 
-  const handleSubmit = async (values) => {
-    setloading(true);
-    const res = await LoginApi(values);
-    console.log("res++ login", res);
-    if (res.status === 200) {
+  const handleSubmit = (values) => {
+    // setloading(true);
+    console.log(values);
+    const res = LoginApi(values);
+    if (
+      values.email === "parasgrover932@gmail.com" &&
+      values.password === "123456"
+    ) {
+      alert("Login succesfull");
+      localStorage.setItem("Token", Token);
       setloading(false);
       dispatch(ValidUser(res?.data));
     } else {
+      alert("Enter correct password and email");
       setloading(false);
-      toast.error(res?.message || "Enter correct password and email");
+      toast.error("Enter correct password and email");
     }
   };
   const antIcon = (
@@ -120,6 +127,9 @@ const LoginPage = () => {
                             width="26rem"
                             margin="1rem 0"
                             type="submit"
+                            onClick={() => {
+                              window.location.reload();
+                            }}
                           >
                             Login
                           </ButtonStyle>
